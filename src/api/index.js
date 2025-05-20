@@ -12,14 +12,13 @@ const getPokemon = () => {
     });
 };
 
-const getPokemonTypes = async (url) => {
-  try {
-    const res = await axios.get(url);
-    return res.data.types.map((t) => t.type.name);
-  } catch (err) {
-    console.error("Error fetching Pokémon types:", err);
-    return [];
-  }
-};
+const getPokemonDetails = async (pokemon) => {
+  return axios.get(pokemon.url)
+  .then((res) => res.data)
+  .catch((err) => {
+    console.error("Error fetching Pokémon details:", err);
+    throw err;
+  });
+}
 
-export { getPokemon, getPokemonTypes };
+export { getPokemon, getPokemonDetails };
