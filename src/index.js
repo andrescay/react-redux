@@ -14,7 +14,6 @@ const composeEnhancers = compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window._
 const store = createStore(
   pokemonsReducer,
   composeEnhancers
-  composeEnhancers
 );
 
 root.render(
